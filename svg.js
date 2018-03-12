@@ -42,12 +42,41 @@ var stop = function() {
 var test = 250;
 
 var reset = function() {
-  test = 250;
+  x1 = 250;
+  y1 = 200;
 }
+
+var more = function(){
+  edgeTouchy(y1);
+  edgeTouchx(x1);
+  if (touchx == 1){
+    x1 = x1 + (Math.random() * 3);
+  }
+  if ( touchx == 0){
+    x1 = x1 - (Math.random() * 3);
+  }
+  if (touchy == 1){
+    y1 = y1 + (Math.random() * 2);
+  }
+  if (touchy == 0){
+    y1 = y1 - (Math.random() * 2);
+  }
+  var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  rect.setAttribute("height", 10);
+  rect.setAttribute("width", 10);
+  rect.setAttribute("x", x1);
+  rect.setAttribute("y",y1);
+  rect.setAttribute("fill", "black");
+  svg.appendChild(rect);
+  requestID = setInterval(more,10);
+}
+
+
 var run = function()
 {
   stop();
-  reset();
+  //reset();
+  more();
   var drawR = function(){
     clearo();
     edgeTouchy(y1);
