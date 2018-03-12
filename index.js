@@ -1,18 +1,18 @@
 svg = document.getElementById("svg_id");
 clear = document.getElementById("clear");
 
-var drawCircle = function(){
+var drawCircle = function(e){
     var cir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    cir.setAttribute("cx", event.x);
-    cir.setAttribute("cy", event.y);
+    cir.setAttribute("cx", e.offsetX);
+    cir.setAttribute("cy", e.offsetY);
     cir.setAttribute("dx", 5.4);
     cir.setAttribute("dy", 3.3);
     cir.setAttribute("r", 10);
     svg.appendChild(cir);
 };
 
-svg.addEventListener("click", function(){
-    drawCircle();
+svg.addEventListener("click", function(e){
+    drawCircle(e);
 });
 
 clear.addEventListener("click", function(){
